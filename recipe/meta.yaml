@@ -30,6 +30,8 @@ requirements:
     - sqlalchemy
 
 test:
+  requires:
+    - pip
   imports:
     - mendeleev
   commands:
