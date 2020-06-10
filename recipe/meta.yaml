@@ -1,0 +1,49 @@
+{% set name = "mendeleev" %}
+{% set version = "0.6.0" %}
+{% set sha256 = "944d185e81f158e48dd394b011e6c14acb612c2ffbc3c32c4aa490cd5b4f65dd" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  noarch: python
+  entry_points:
+    - element.py = mendeleev.cli:clielement
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python >=3.6
+    - pip
+  run:
+    - python >=3.6
+    - colorama
+    - numpy
+    - pandas
+    - pyfiglet
+    - sqlalchemy
+
+test:
+  imports:
+    - mendeleev
+  commands:
+    - element.py --help
+    - pip check
+
+about:
+  home: https://github.com/lmmentel/mendeleev
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: A perdioc table of elements API and a database of atomic properties.
+  description: |
+    This package provides an API for accessing various properties 
+    of elements from the periodic table of elements.
+  doc_url: http://mendeleev.readthedocs.org
+  dev_url: https://github.com/lmmentel/mendeleev
