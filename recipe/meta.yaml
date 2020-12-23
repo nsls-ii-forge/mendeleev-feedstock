@@ -1,6 +1,6 @@
 {% set name = "mendeleev" %}
-{% set version = "0.6.0" %}
-{% set sha256 = "944d185e81f158e48dd394b011e6c14acb612c2ffbc3c32c4aa490cd5b4f65dd" %}
+{% set version = "0.6.1" %}
+{% set sha256 = "3374e65207babe45b7e6a21aeba346b358365d9d0b2565ad9de6ba2ce87bc121" %}
 
 package:
   name: {{ name|lower }}
