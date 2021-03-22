@@ -28,6 +28,7 @@ requirements:
     - numpy
     - pandas
     - pyfiglet
+    - pygments
     - sqlalchemy
 
 test:
