@@ -1,6 +1,6 @@
 {% set name = "mendeleev" %}
-{% set version = "0.6.1" %}
-{% set sha256 = "3374e65207babe45b7e6a21aeba346b358365d9d0b2565ad9de6ba2ce87bc121" %}
+{% set version = "0.7.0" %}
+{% set sha256 = "df1fee2a3dde51a10ac26dcedb7f55671800a5627f43c8b6760793a1a6a4eb11" %}
 
 package:
   name: {{ name|lower }}
@@ -21,12 +21,14 @@ requirements:
   host:
     - python >=3.6
     - pip
+    - poetry
   run:
     - python >=3.6
     - colorama
     - numpy
     - pandas
     - pyfiglet
+    - pygments
     - sqlalchemy
 
 test:
@@ -36,7 +38,9 @@ test:
     - mendeleev
   commands:
     - element.py --help
-    - pip check
+    # TODO: uncomment it once numpy 1.19.5+ appears in https://anaconda.org/anaconda/numpy.
+    # ERROR: mendeleev 0.7.0 has requirement numpy<2.0.0,>=1.19.5, but you have numpy 1.19.2.
+    # - pip check
 
 about:
   home: https://github.com/lmmentel/mendeleev
